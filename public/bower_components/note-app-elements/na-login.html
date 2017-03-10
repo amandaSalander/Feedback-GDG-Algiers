@@ -1,0 +1,217 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<link rel="import" href="../paper-button/paper-button.html">
+<link rel="import" href="../iron-icon/iron-icon.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
+<link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
+<dom-module id="na-login">
+  <template>
+    <style>
+      :host {
+        position: absolute;
+        top: 46px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--paper-blue-500);
+   
+        
+        transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 1;
+        color: white;
+
+        /*@apply(--layout);*/
+        @apply(--layout-center-center);
+      }
+
+      :host([signed-in]) {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      paper-button > * {
+        vertical-align: middle;
+        text-transform: none;
+        color: white;
+        font-size: 16pt;
+      }
+      iron-icon {
+        margin-right: 10px;
+      }
+      img#logo{
+        width: 400px;
+        height: 400px;
+        margin-left: 10%;
+        margin-top: 0%;
+
+      }
+      img#gdg{
+        margin-top: -50px;
+      }
+
+      paper-button{
+        position: absolute;
+        margin-left: 50px;
+        margin-top: 16%;
+        vertical-align: middle;
+
+
+      }
+
+      div{
+        position:fixed;bottom:0px;width:100%;
+        vertical-align: middle;
+      }
+      a{
+        text-decoration: none;
+        color: white;
+        vertical-align: middle;
+        text-transform: none;
+        font-size: 14pt;
+      }
+      a:first-child{
+        margin-left: 15%;
+      }
+      a:nth-child(2){
+        margin-left: 15%;
+      }
+      a:last-child{
+        margin-left: 15%;
+      }
+
+      @media (max-width: 640px) {
+         img#logo{
+          /*background-position-x:10%;*/
+          /*margin-right: 40px;*/
+          width: 200px;
+          height: 200px;
+          margin-left: 8%;
+          margin-top: 0%;
+          /*display: inline-block;*/
+          /*vertical-align: middle;*/
+
+        }
+        img#gdg{
+           width: 95px;
+          /*height: 200px;*/
+
+        } 
+        paper-button > * {
+          font-size: 12pt;
+          margin-left: 0px;
+        }
+        paper-button{
+          margin-top: 105px;
+          margin-left: -20px;
+        }
+        a{
+          margin-left: 5%;
+        }
+      }
+
+      @media (max-width: 480px) {
+        img#logo{
+          /*background-position-x:10%;*/
+          /*margin-right: 40px;*/
+          width: 200px;
+          height: 200px;
+          margin-left: 8%;
+          margin-top: 0%;
+          /*display: inline-block;*/
+          /*vertical-align: middle;*/
+
+        }
+        img#gdg{
+           width: 110px;
+          /*height: 200px;*/
+
+        } 
+        paper-button{
+          margin-top: 240px;
+          margin-left: -250px;
+        }
+        a{
+          margin-right: -1%;
+          font-size: 12pt;
+        }
+        a:first-child{
+          margin-left: 30px;
+        }
+
+      }
+
+      div{
+        background-color: var(--paper-blue-500);
+
+      }
+
+      @media (max-width: 480px){
+         img#logo{
+          /*background-position-x:10%;*/
+          /*margin-right: 40px;*/
+          width: 150px;
+          height: 150px;
+          margin-left: 8%;
+          margin-top: 0%;
+          /*display: inline-block;*/
+          /*vertical-align: middle;*/
+
+        }
+        img#gdg{
+           width: 82.5px;
+          /*height: 200px;*/
+
+        }
+        paper-button{
+          margin-top: 240px;
+          margin-left: -220px;
+        } 
+
+      }
+
+    </style>
+    <img id="logo" src="../../google-next-logo-light.svg">
+    <img id="gdg" src="../../gdglogo.png">
+    <!-- <br> -->
+    <paper-button on-tap="signIn" disabled="[[disabled]]">
+      <iron-icon src="../../google-logo.png"></iron-icon>
+      <span>Sign in with Google</span>
+    </paper-button>
+    <br>
+    <div>
+    <a href="https://www.facebook.com/GDGAlgiers/?fref=ts">Facebook</a>
+    <a href="https://plus.google.com/+GDGAlgiersOfficial">Google +</a>
+    <a href="https://twitter.com/gdg_algiers?lang=fr">Twitter</a>
+    </div>
+  </template>
+  <script>
+    Polymer({
+      is: 'na-login',
+
+      properties: {
+        disabled: {
+          type: Boolean,
+          reflectToAttribute: true,
+          value: false
+        },
+
+        signedIn: {
+          type: Boolean,
+          reflectToAttribute: true,
+          value: false
+        }
+      },
+
+      signIn: function() {
+        this.fire('sign-in', null, { bubbles: false });
+      }
+    });
+  </script>
+</dom-module>
