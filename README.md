@@ -8,7 +8,7 @@ npm install -g bower
 npm install -g polymer-cli
 
 ## clone the repository
-git clone git clone https://github.com/amandaSalander/Feedback-GDG-Algiers.git
+git clone https://github.com/amandaSalander/Feedback-GDG-Algiers.git
 
 cd Feedback-GDG-Algiers
 
@@ -17,3 +17,7 @@ bower update
 
 ## serve the app
 polymer serve --open --port 5000
+
+
+## Enjoy !
+leave your comments about the GCP Next 2017 Algiers
