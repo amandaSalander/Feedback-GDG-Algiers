@@ -27,7 +27,7 @@ enable Google authentication in Authentication/ SIGN-IN METHOD
 
 in the overview of your project click on **Add Firebase to your web app** 
 
-<script>
+< script>
   // Initialize Firebase
   var config = {
     apiKey: "your-api-key",
@@ -37,11 +37,11 @@ in the overview of your project click on **Add Firebase to your web app**
     messagingSenderId: "your-messaging-sende-id"
   };
   firebase.initializeApp(config);
-</script>
+</ script>
 
 in the index.html change the attributes values of firebase-app to your project configuration
 
-  <firebase-app
+  < firebase-app
     name="your-app-name"
     api-key="your-api-key"
     auth-domain="your-auth-domain"
